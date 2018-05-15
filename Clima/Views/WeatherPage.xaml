@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:clm="clr-namespace:Clima.ViewModel"
              x:Class="Clima.Views.WeatherPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <clm:WeatherPageModelView x:Key="ClimaVM"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-        <SearchBar Placeholder="Escribir el nombre de la ciudad"></SearchBar>
-        <Label Text="Ciudad ..."
+        <StackLayout BindingContext="{Binding Source={StaticResource ClimaVM}}">
+        <SearchBar Placeholder="Escribir el nombre de la ciudad"
+                   Text="{Binding ResultTerm}"
+                   SearchCommand="{Binding BuscarCommand}"></SearchBar>
+        <Label Text="{Binding Ubicacion}"
                FontSize="20"/>
-        <Label Text="El pronóstico es .."
+        <Label Text="{Binding Pronostico}"
                FontSize="25"/>
         <Image  WidthRequest="200"
-                HeightRequest="200"/>
+                HeightRequest="200"
+                Source="{Binding Imagen}"/>
             </StackLayout>
     </ContentPage.Content>
 </ContentPage>
