@@ -9,17 +9,97 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout BindingContext="{Binding Source={StaticResource ClimaVM}}">
+        <StackLayout BindingContext="{Binding Source={StaticResource ClimaVM}}"
+                     Padding="5"
+                     Margin="5">
         <SearchBar Placeholder="Escribir el nombre de la ciudad"
                    Text="{Binding ResultTerm}"
                    SearchCommand="{Binding BuscarCommand}"></SearchBar>
-        <Label Text="{Binding Ubicacion}"
-               FontSize="20"/>
-        <Label Text="{Binding Pronostico}"
-               FontSize="25"/>
+            
+        
+                    <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                     <RowDefinition/>
+                                     <RowDefinition/>
+                                     <RowDefinition/>
+                                     <RowDefinition/>
+                                     <RowDefinition/>
+                                     <RowDefinition/>
+                                </Grid.RowDefinitions>
+                        
+                                    <Label Text="Ubicacion" 
+                                           TextColor="Black"
+                                           FontSize="20"
+                                           FontAttributes="Bold"
+                                           />
+                                    <Label Text="{Binding Ubicacion}" 
+                                           TextColor="Black"
+                                           FontSize="20"
+                                           Grid.Column="1"/>
+                         
+                                    <Label Text="Pais"
+                                           FontSize="20"
+                                           FontAttributes="Bold"
+                                           Grid.Row="1"/>
+                                    <Label Text="{Binding Pais}" 
+                                           TextColor="Black"
+                                           FontSize="20"
+                                           Grid.Column="1"
+                                           Grid.Row="1"/>
+                                    <Label Text="Region" 
+                                           TextColor="Black"
+                                           FontSize="20"
+                                           FontAttributes="Bold"
+                                           Grid.Row="2"/>
+                                    <Label Text="{Binding Region}" 
+                                           TextColor="Black"
+                                           FontSize="20"
+                                           Grid.Column="1"
+                                           Grid.Row="2"/>
+                                    <Label Text="Ultima Actualizacion" 
+                                           TextColor="Black"
+                                           FontSize="20"
+                                           FontAttributes="Bold"
+                                           Grid.Row="3"/>
+                                    <Label Text="{Binding UltimaActualizacion}" 
+                                           TextColor="Black"
+                                           FontSize="20"
+                                           Grid.Column="1"
+                                           Grid.Row="3"/>
+                                    <Label Text="Temperatura" 
+                                           TextColor="Black"
+                                           FontSize="20"
+                                           FontAttributes="Bold"
+                                           Grid.Row="4"/>
+                                    <Label Text="{Binding Temperatura}" 
+                                           TextColor="Black"
+                                           FontSize="20"
+                                           Grid.Column="1"
+                                           Grid.Row="4"/>
+                                    <Label Text="Clima" 
+                                           TextColor="Black"
+                                           FontSize="20"
+                                           FontAttributes="Bold"
+                                           Grid.Row="5"/>
+                                    <Label Text="{Binding Clima}" 
+                                           TextColor="Black"
+                                           FontSize="20"
+                                           Grid.Column="1"
+                                           Grid.Row="5"/>
+                        
+                 </Grid>
+              
+    
+
+                
         <Image  WidthRequest="200"
                 HeightRequest="200"
                 Source="{Binding Imagen}"/>
-            </StackLayout>
+
+       </StackLayout>
     </ContentPage.Content>
 </ContentPage>

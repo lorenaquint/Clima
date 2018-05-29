@@ -12,14 +12,62 @@ namespace Clima.ViewModel
     {
 		#region Atributos
 		private string ubicacion;
-		private string pronostico;
+		private string pais;
 		private string resultTerm;
+		private string region;
+        private string ultimaActualizacion;
+        private string clima;
+		private string temperatura;
 		private ImageSource imagen;
 		#endregion
 
 
-
+        
 		#region Propiedades
+		public string Region
+        {
+            get
+            {
+				return region;
+            }
+            set
+            {
+				SetValue(ref region, value);
+            }
+        }
+		public string UltimaActualizacion
+        {
+            get
+            {
+				return ultimaActualizacion;
+            }
+            set
+            {
+				SetValue(ref ultimaActualizacion, value);
+            }
+        }
+		public string Clima
+        {
+            get
+            {
+				return clima;
+            }
+            set
+            {
+				SetValue(ref clima, value);
+            }
+        }
+		public string Temperatura
+        {
+            get
+            {
+				return temperatura;
+            }
+            set
+            {
+				SetValue(ref temperatura, value);
+            }
+        }
 		public string Ubicacion
 		{
 			get
@@ -31,15 +79,15 @@ namespace Clima.ViewModel
 				SetValue(ref ubicacion, value);
 			}
 		}
-		public string Pronostico
+		public string Pais
 		{
 			get
 			{
-				return pronostico;
+				return pais;
 			}
 			set
 			{
-				SetValue(ref pronostico, value);
+				SetValue(ref pais, value);
 			}
 		}
 		public string ResultTerm
@@ -51,6 +99,7 @@ namespace Clima.ViewModel
 			set
 			{
 				SetValue(ref resultTerm, value);
+
 			}
 		}
 		public ImageSource Imagen
@@ -100,13 +149,13 @@ namespace Clima.ViewModel
 
 		private void SetValues(Weather weatherModel)
 		{
-			Ubicacion = $"Ciudad: {weatherModel.Query.Results.Channel.Location.City}\n+" +
-				$"Pais: {weatherModel.Query.Results.Channel.Location.Country}\n" +
-				$"Región {weatherModel.Query.Results.Channel.Location.Region}";
-			Pronostico = $"Ultima actualización: {weatherModel.Query.Results.Channel.Item.Condition.Date}\n" +
-				$"Temperatura: {weatherModel.Query.Results.Channel.Item.Condition.Temp}\n" +
-				$"Clima: {weatherModel.Query.Results.Channel.Item.Condition.Text}";;
-				var imgLink = $"http://l.yimg.com/a/i/us/we/52/{weatherModel.Query.Results.Channel.Item.Condition.Code}.gif";
+			Ubicacion = weatherModel.Query.Results.Channel.Location.City;
+			Pais = weatherModel.Query.Results.Channel.Location.Country;
+			Region = weatherModel.Query.Results.Channel.Location.Region;
+			UltimaActualizacion = weatherModel.Query.Results.Channel.Item.Condition.Date;
+			Temperatura = weatherModel.Query.Results.Channel.Item.Condition.Temp;
+			Clima = weatherModel.Query.Results.Channel.Item.Condition.Text;
+			var imgLink = $"http://l.yimg.com/a/i/us/we/52/{weatherModel.Query.Results.Channel.Item.Condition.Code}.gif";
 			Imagen = ImageSource.FromUri(new Uri(imgLink));
 		}
 
