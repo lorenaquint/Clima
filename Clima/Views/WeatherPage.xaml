@@ -10,14 +10,14 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout BindingContext="{Binding Source={StaticResource ClimaVM}}"
-                     Padding="5"
-                     Margin="5">
-        <SearchBar Placeholder="Escribir el nombre de la ciudad"
-                   Text="{Binding ResultTerm}"
-                   SearchCommand="{Binding BuscarCommand}"></SearchBar>
+                     Margin="20">
             
-        
-                    <Grid>
+         <SearchBar
+                Placeholder="Ingrese la ciudad"
+                Text="{Binding ResultTerm}"
+                SearchCommand="{Binding BuscarCommand}"></SearchBar>
+ 
+                    <Grid Margin="30">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />

@@ -18,5 +18,6 @@
   <ItemGroup>
     <Compile Remove="Views.cs" />
     <Compile Remove="ModelView\WeatherPageViewModel.cs" />
+    <Compile Remove="ViewModel\WeatherPageViewModel.cs" />
   </ItemGroup>
 </Project>

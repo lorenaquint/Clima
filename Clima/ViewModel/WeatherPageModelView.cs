@@ -144,10 +144,10 @@ namespace Clima.ViewModel
 			response.EnsureSuccessStatusCode();
 			var jsonResult = response.Content.ReadAsStringAsync().Result;
 			var weatherModel = Weather.FromJson(jsonResult);
-			SetValues(weatherModel);
+			FijarValores(weatherModel);
 		}
 
-		private void SetValues(Weather weatherModel)
+		private void FijarValores(Weather weatherModel)
 		{
 			Ubicacion = weatherModel.Query.Results.Channel.Location.City;
 			Pais = weatherModel.Query.Results.Channel.Location.Country;
