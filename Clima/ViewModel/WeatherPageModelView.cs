@@ -121,7 +121,8 @@ namespace Clima.ViewModel
 
 		public ICommand BuscarCommand
 		{
-			get{
+			get
+			{
 				return new RelayCommand(Buscar);
 			}
 		}

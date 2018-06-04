@@ -10,14 +10,16 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout BindingContext="{Binding Source={StaticResource ClimaVM}}"
-                     Margin="20">
+                     Margin="20"
+                     >
             
          <SearchBar
                 Placeholder="Ingrese la ciudad"
+                HeightRequest="30"
                 Text="{Binding ResultTerm}"
                 SearchCommand="{Binding BuscarCommand}"></SearchBar>
  
-                    <Grid Margin="30">
+                    <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
@@ -99,6 +101,18 @@
         <Image  WidthRequest="200"
                 HeightRequest="200"
                 Source="{Binding Imagen}"/>
+
+         
+                <Button Text="Hola"
+                        WidthRequest="100"
+                        HorizontalOptions="Center"
+                        BackgroundColor="Navy"
+                        TextColor="White"
+                        CornerRadius="20"
+                        >
+                    
+                </Button>
+           
 
        </StackLayout>
     </ContentPage.Content>
